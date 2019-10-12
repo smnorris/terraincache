@@ -4,17 +4,17 @@ A basic Python script for downloading and accessing [Mapzen Terrain Tiles](https
 
 ## Installation
 
-    pip install terraincache
-
-## Setup
+    git clone https://github.com/smnorris/terraincache
+    cd terraincache
+    pip install .
 
 Set the `TERRAINCACHE` environment variable to save typing:
 
     export $TERRAINCACHE=/users/snorris/Data/terrain-tiles
 
-## Python module
+## Usage
 
-The python module downloads and dumps terrain tiles:
+### Python module
 
     import terraincache
 
@@ -32,39 +32,38 @@ The python module downloads and dumps terrain tiles:
         res=30
     )
 
-## CLI
-
-### Usage
+### CLI
 
     $ terraincache --help
-    Usage: terraincache [OPTIONS] OUT_FILE
+    Usage: terraincache [OPTIONS]
 
       Write terrain tiles to geotiff
 
     Options:
-      --bounds TEXT       Bounds: "left bottom right top" or "[left, bottom,
-                          right, top]".  [required]
-      -z, --zoom INTEGER  Web map zoom level  [required]
+      -o, --out_file PATH
+      --bounds TEXT        Bounds: "left bottom right top" or "[left, bottom,
+                           right, top]".  [required]
+      -z, --zoom INTEGER   Web map zoom level  [required]
       --path TEXT
-      -r, --res FLOAT     Output dataset resolution in meters (square pixels)
-      --dst-crs TEXT      Target coordinate reference system.
-      --help              Show this message and exit.
+      -r, --res FLOAT      Output dataset resolution in meters (square pixels)
+      --dst-crs TEXT       Target coordinate reference system.
+      --help               Show this message and exit.
 
-### Example
+Download Mt Waddington summit to a BC Albers geotiff, resampled to 25m:
 
     terraincache \
-      --bounds "(-125.271412, 51.370639, -125.254793, 51.376881" \
+      --bounds "-125.271412, 51.370639, -125.254793, 51.376881" \
       --zoom 11 \
       --res 25 \
       terrain-tiles.tif
 
 
-## Data sources and more
+## Data sources
 
-https://github.com/tilezen/joerd/blob/master/docs/data-sources.md
+See the [data sources reference document](https://github.com/tilezen/joerd/blob/master/docs/data-sources.md)
 
 ## Credits
 
-https://registry.opendata.aws/terrain-tiles/
-https://github.com/tilezen/joerd/blob/master/docs/examples/collect.py
-https://github.com/interline-io/planetutils
+- [terrain-tiles](https://registry.opendata.aws/terrain-tiles)
+- [Mapzen provided script](https://github.com/tilezen/joerd/blob/master/docs/examples/collect.py)
+- [planetutils](https://github.com/interline-io/planetutils)
