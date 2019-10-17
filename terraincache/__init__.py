@@ -14,8 +14,7 @@ __version__ = "0.0.1dev"
 
 
 BASE_URL = "http://s3.amazonaws.com/elevation-tiles-prod/geotiff/"
-
-log = logging.getLogger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 def tile_path(tile):
@@ -32,7 +31,7 @@ def download_tile(tile, out_path, verbose=True):
     r = requests.get(url, stream=True)
     if r.status_code != 200:
         raise RuntimeError("No such tile: {}".format("/".join(tile_path(tile))))
-    log.debug(f"Downloaded {url}")
+    LOG.debug(f"Downloaded {url}")
     with out_file.open("wb") as fd:
         for chunk in r.iter_content(chunk_size=128):
             fd.write(chunk)
@@ -53,7 +52,7 @@ def download(bounds, zoom, cache):
             found.add(tile)
         else:
             to_download.add(tile)
-    log.info("Downloading %s tiles" % (len(to_download)))
+    LOG.info("Downloading %s tiles" % (len(to_download)))
     for tile in sorted(to_download):
         download_tile(tile, cache)
 
