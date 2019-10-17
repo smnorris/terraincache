@@ -23,6 +23,9 @@ def tile_path(tile):
 
 
 def download_tile(tile, out_path, verbose=True):
+    """
+    Download a terrain tile to out_path, where tile is a Mercantile Tile
+    """
     out_file = Path(out_path).joinpath("/".join(tile_path(tile)))
     out_file.parent.mkdir(parents=True, exist_ok=True)
     url = BASE_URL + "/".join(tile_path(tile))
@@ -37,7 +40,7 @@ def download_tile(tile, out_path, verbose=True):
 
 def download(bounds, zoom, cache):
     """
-    Download geotiffs for provided Mercantile Tiles
+    Download geotiffs that intersect provided bounds
     (if not already present in cache)
     Modified from https://github.com/interline-io/planetutils
     """
@@ -56,7 +59,11 @@ def download(bounds, zoom, cache):
 
 
 def merge(bounds, zoom, cache, dst_crs="EPSG:3005", res=30, out_file=None):
-    """Merge specified tiles and dump to file
+    """
+    Given bounds and zoom,
+        - get terrain tiles
+        - merge
+        - dump to int16 geotiff using specified crs and resolution
     """
     # make sure tiles are available
     download(bounds, zoom, cache)
