@@ -38,5 +38,6 @@ def test_merge(tmpdir):
         TEST_BOUNDS,
         TEST_ZOOM_2,
         cache=str(tmpdir),
-        out_file=os.path.join(str(tmpdir), "test.tif"))
+        out_file=os.path.join(str(tmpdir), "test.tif"),
+    )
     assert (Path(str(tmpdir)) / "test.tif").exists
