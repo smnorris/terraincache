@@ -3,7 +3,7 @@ import logging
 import sys
 
 import terraincache
-from raserio.warp import transform_bounds
+from rasterio.warp import transform_bounds
 from rasterio.rio import options
 from cligj import verbose_opt, quiet_opt
 
@@ -42,14 +42,14 @@ from cligj import verbose_opt, quiet_opt
 )
 @verbose_opt
 @quiet_opt
-def cli(out_file, bounds, zoom, path, res, bounds_crs, dst_crs, verbose, quiet):
+def cli(out_file, bounds, zoom, cache_path, res, bounds_crs, dst_crs, verbose, quiet):
     """Write terrain tiles to geotiff"""
     verbosity = verbose - quiet
     log_level = max(10, 30 - 10 * verbosity)
     logging.basicConfig(stream=sys.stderr, level=log_level)
     if bounds_crs != "EPSG:4326":
         bounds = transform_bounds(bounds_crs, "EPSG:4326", *bounds)
-    terraincache.merge(bounds, zoom, path, res=res, dst_crs=dst_crs, out_file=out_file)
+    terraincache.merge(bounds, zoom, cache_path, res=res, dst_crs=dst_crs, out_file=out_file)
 
 
 if __name__ == "__main__":

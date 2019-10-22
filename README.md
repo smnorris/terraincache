@@ -10,7 +10,7 @@ A basic Python script for downloading and accessing [Mapzen Terrain Tiles](https
 
 Set the `TERRAINCACHE` environment variable to save typing:
 
-    export $TERRAINCACHE=/users/snorris/Data/terrain-tiles
+    export TERRAINCACHE=/users/snorris/Data/terrain-tiles
 
 ## Usage
 

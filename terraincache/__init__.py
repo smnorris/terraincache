@@ -48,6 +48,7 @@ def download(bounds, zoom, cache):
     to_download = set()
 
     for tile in tiles:
+        LOG.debug(tile)
         if Path(cache).joinpath("/".join(tile_path(tile))).exists():
             found.add(tile)
         else:
