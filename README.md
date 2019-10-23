@@ -37,14 +37,19 @@ Set the `TERRAINCACHE` environment variable to save typing:
       Write terrain tiles to geotiff
 
     Options:
-      -o, --out_file PATH
-      --bounds TEXT        Bounds: "left bottom right top" or "[left, bottom,
-                           right, top]".  [required]
-      -z, --zoom INTEGER   Web map zoom level  [required]
-      --path TEXT
-      -r, --res FLOAT      Output dataset resolution in meters (square pixels)
-      --dst-crs TEXT       Target coordinate reference system.
-      --help               Show this message and exit.
+      -o, --out_file, --out-file PATH
+      --bounds TEXT                   Bounds: "left bottom right top" or "[left,
+                                      bottom, right, top]".  [required]
+      -z, --zoom INTEGER              Web map zoom level  [required]
+      -p, --cache-path, --cache_path TEXT
+      -r, --res FLOAT                 Output dataset resolution in meters (square
+                                      pixels)
+      --bounds-crs, --bounds_crs TEXT
+                                      CRS of provided bounds
+      --dst-crs, --dst_crs TEXT       Target coordinate reference system.
+      -v, --verbose                   Increase verbosity.
+      -q, --quiet                     Decrease verbosity.
+      --help                          Show this message and exit.
 
 Download Mt Waddington summit to a BC Albers geotiff, resampled to 25m:
 

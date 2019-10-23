@@ -44,7 +44,7 @@ LOG = logging.getLogger(__name__)
 )
 @verbose_opt
 @quiet_opt
-def cli(out_file, bounds, zoom, cache_path, res, bounds_crs, dst_crs, verbose, quiet):
+def cli(out_file, bounds, zoom, cache_dir, res, bounds_crs, dst_crs, verbose, quiet):
     """Write terrain tiles to geotiff"""
     verbosity = verbose - quiet
     log_level = max(10, 30 - 10 * verbosity)
@@ -54,7 +54,7 @@ def cli(out_file, bounds, zoom, cache_path, res, bounds_crs, dst_crs, verbose, q
         bounds,
         zoom,
         bounds_crs=bounds_crs,
-        cache_dir=cache_path,
+        cache_dir=cache_dir,
         resolution=res,
         dst_crs=dst_crs,
     )
