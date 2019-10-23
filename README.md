@@ -16,21 +16,18 @@ Set the `TERRAINCACHE` environment variable to save typing:
 
 ### Python module
 
-    import terraincache
+    from terraincache import TerrainTiles
 
-    # download a bounds to cache
-    bounds = (-125.271412, 51.370639, -125.254793, 51.376881)
-    terraincache.download(bounds, 14, "/path/to/cache/folder")
+    # initialize with zoom and bounds of interest,
+    # specifiying crs and resolution of output grid
+    tt = TerrainTiles(-125.271412, 51.370639, -125.254793, 51.376881, 11, dest_crs="EPSG:3005", resolution=50)
 
-    # dump tiles to BC Albers geotiff
-    terraincache.merge(
-        bounds,
-        12,
-        "/path/to/cache/folder",
-        out_file="terrain-tiles.tif",
-        dst_crs="EPSG:3005",
-        res=30
-    )
+    # load to array
+    array = tt.load()
+
+    # dump to file
+    tt.save(outfile="terrrain-tiles.tif")
+
 
 ### CLI
 

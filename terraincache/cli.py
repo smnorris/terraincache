@@ -2,10 +2,12 @@ import click
 import logging
 import sys
 
-import terraincache
-from rasterio.warp import transform_bounds
+from terraincache import TerrainTiles
 from rasterio.rio import options
 from cligj import verbose_opt, quiet_opt
+
+
+LOG = logging.getLogger(__name__)
 
 
 @click.command("terraincache")
@@ -47,10 +49,17 @@ def cli(out_file, bounds, zoom, cache_path, res, bounds_crs, dst_crs, verbose, q
     verbosity = verbose - quiet
     log_level = max(10, 30 - 10 * verbosity)
     logging.basicConfig(stream=sys.stderr, level=log_level)
-    if bounds_crs != "EPSG:4326":
-        bounds = transform_bounds(bounds_crs, "EPSG:4326", *bounds)
-    terraincache.merge(bounds, zoom, cache_path, res=res, dst_crs=dst_crs, out_file=out_file)
+    LOG.info(bounds)
+    tt = TerrainTiles(
+        bounds,
+        zoom,
+        bounds_crs=bounds_crs,
+        cache_dir=cache_path,
+        resolution=res,
+        dst_crs=dst_crs,
+    )
+    tt.save(out_file)
 
 
 if __name__ == "__main__":
-    terraincache()
+    cli()
