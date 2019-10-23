@@ -59,8 +59,10 @@ Download Mt Waddington summit to a BC Albers geotiff, resampled to 25m:
 
 See the [data sources reference document](https://github.com/tilezen/joerd/blob/master/docs/data-sources.md)
 
-## Credits
+## Credits / other implementations
 
 - [terrain-tiles](https://registry.opendata.aws/terrain-tiles)
 - [Mapzen provided script](https://github.com/tilezen/joerd/blob/master/docs/examples/collect.py)
 - [planetutils](https://github.com/interline-io/planetutils)
+- [dem](https://github.com/dgketchum/dem)
+- [elevatr](https://github.com/jhollist/elevatr)
