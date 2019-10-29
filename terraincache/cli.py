@@ -25,7 +25,7 @@ LOG = logging.getLogger(__name__)
     help='Bounds: "left bottom right top" or "[left, bottom, right, top]".',
 )
 @click.option("--zoom", "-z", type=int, required=True, help="Web map zoom level")
-@click.option("--cache-path", "--cache_path", "-p", envvar="TERRAINCACHE")
+@click.option("--cache-dir", "--cache_dir", "-p", envvar="TERRAINCACHE")
 @click.option(
     "-r",
     "--res",

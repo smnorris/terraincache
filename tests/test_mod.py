@@ -57,4 +57,4 @@ def test_load(tmpdir):
         resolution=50,
     )
     array = tt.load()
-    assert array.shape == (63, 63)
+    assert array.shape == (14, 23)
