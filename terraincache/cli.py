@@ -17,7 +17,7 @@ LOG = logging.getLogger(__name__)
     "-o",
     default="terrain-tiles.tif",
     type=click.Path(resolve_path=True),
-    help="Output file name/path"
+    help="Output file name/path",
 )
 @click.option(
     "--bounds",
@@ -26,7 +26,13 @@ LOG = logging.getLogger(__name__)
     help='Bounds: "left bottom right top" or "[left, bottom, right, top]".',
 )
 @click.option("--zoom", "-z", type=int, required=True, help="Web map zoom level")
-@click.option("--cache-dir", "--cache_dir", "-p", envvar="TERRAINCACHE", help="Path to cache folder")
+@click.option(
+    "--cache-dir",
+    "--cache_dir",
+    "-p",
+    envvar="TERRAINCACHE",
+    help="Path to cache folder",
+)
 @click.option(
     "-tr",
     "--target_resolution",
@@ -46,13 +52,27 @@ LOG = logging.getLogger(__name__)
 @click.option(
     "-r",
     "--resampling_algorithm",
-    type=click.Choice(["bilinear", "nearest", "cubic", "cubicspline", "lanczos", "average", "mode"], case_sensitive=False),
+    type=click.Choice(
+        ["bilinear", "nearest", "cubic", "cubicspline", "lanczos", "average", "mode"],
+        case_sensitive=False,
+    ),
     default="bilinear",
     help="GDAL resampling algorithm",
 )
 @verbose_opt
 @quiet_opt
-def cli(out_file, bounds, zoom, cache_dir, target_resolution, bounds_crs, dst_crs, resampling_algorithm, verbose, quiet):
+def cli(
+    out_file,
+    bounds,
+    zoom,
+    cache_dir,
+    target_resolution,
+    bounds_crs,
+    dst_crs,
+    resampling_algorithm,
+    verbose,
+    quiet,
+):
     """Write terrain tiles to geotiff"""
     verbosity = verbose - quiet
     log_level = max(10, 30 - 10 * verbosity)

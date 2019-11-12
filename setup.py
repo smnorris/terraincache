@@ -15,7 +15,7 @@ with open("terraincache/__init__.py", "r") as f:
             version = version.strip("'")
             break
 
-requires = ["click", "rasterio", "mercantile"]
+requires = ["click", "mercantile", "rasterio", "requests"]
 
 test_requirements = ["pytest"]
 
@@ -32,6 +32,7 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
     keywords="terrain-tiles mapzen aws terrain dem s3 geotiff",
     author=u"Simon Norris",

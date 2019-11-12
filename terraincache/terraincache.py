@@ -24,7 +24,7 @@ class TerrainTiles(object):
         dst_crs="EPSG:4326",
         resolution=None,
         cache_dir=None,
-        resampling="bilinear"
+        resampling="bilinear",
     ):
 
         # create a temp folder for vrts
