@@ -25,10 +25,11 @@ setup(
     url="https://github.com/smnorris/terraincache",
     description=u"Basic tool for downloading and merging mapzen terrain tile geotiffs from AWS",
     long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: Apache",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
