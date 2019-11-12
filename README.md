@@ -4,6 +4,8 @@ A (yet another) basic Python script for downloading and accessing [Mapzen Terrai
 
 ## Installation
 
+Installation assumes that you have `gdal` and the `gdal` Python bindings already installed to a location findable by your system.
+
     pip install terraincache
 
 Set the `TERRAINCACHE` environment variable to save typing:
