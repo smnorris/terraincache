@@ -1,6 +1,6 @@
 # terraincache
 
-(Yet another) basic Python script for downloading and accessing [Mapzen Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) geotiffs from AWS.
+A (yet another) basic Python script for downloading and accessing [Mapzen Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) geotiffs from AWS. Designed to integrate with `rasterio` and to provide a familiar command line tool for quick reprojection of downloads.
 
 ## Installation
 
