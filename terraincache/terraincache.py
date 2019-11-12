@@ -53,7 +53,7 @@ class TerrainTiles(object):
         self.bounds_crs = bounds_crs
 
         self.url = "http://s3.amazonaws.com/elevation-tiles-prod/geotiff/"
-        self.tiles = mercantile.tiles(*self.bounds_ll, self.zoom)
+        self.tiles = [t for t in mercantile.tiles(*self.bounds_ll, self.zoom)]
         self.files = []
         self.merged = False
         self.warped = False
